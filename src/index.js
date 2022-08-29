@@ -5,8 +5,11 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// const [first, second, third] = ["Lucas", "Alex", "Anna"];
+const [, , third] = ["Lucas", "Alex", "Anna"];
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App name={third} />
   </React.StrictMode>
 );
