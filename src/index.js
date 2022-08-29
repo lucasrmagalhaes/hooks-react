@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// const [first, second, third] = ["Lucas", "Alex", "Anna"];
-const [, , third] = ["Lucas", "Alex", "Anna"];
+function App() {
+  const [status, setStatus] = useState("Not Delivered");
+
+  return (
+    <div>
+      <h1>The package is: {status}</h1>
+
+      <button onClick={() => setStatus("Delivered")}>Deliver</button>
+    </div>
+  );
+}
 
 root.render(
   <React.StrictMode>
-    <App name={third} />
+    <App />
   </React.StrictMode>
 );
