@@ -11,3 +11,9 @@ npx create-react-app .
 [CodeSandbox - New Project - React](https://react.new/)
 
 ---
+
+```
+npm install react-icons
+```
+
+---
