@@ -1,2 +1,3 @@
-# hooks-react
-React Hooks history
+**Hooks allow:**
+- Add State to Function Components
+- Abstract Logic into Separate Functions
