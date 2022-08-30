@@ -4,22 +4,36 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const initialState = {
+  message: "hi"
+}
+
+function reducer(state, action) {
+  switch(action.type) {
+    case "yell":
+      return { 
+        message: `HEY! I JUST SAD ${state.message}`
+      };
+    case "whisper":
+      return {
+        message: `excuse me, I just sai ${state.message}`
+      };
+  }
+}
+
 function App() {
-  const [checked, toggle] = useReducer(
-    (checked) => !checked,
-    false
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialState
   );
 
   return (
-    <div>
-      <input 
-        type="checkbox" 
-        value={checked}
-        onChange={toggle}
-      />
+    <>
+        <p>Message: {state.message}</p>
 
-      <p>{ checked ? "checked" : "not checked" }</p>
-    </div>
+        <button onClick={() => dispatch({ type: "yell" })}>YELL</button>
+        <button onClick={() => dispatch({ type: "whisper" })}>whisper</button>
+    </>
   );
 }
 
