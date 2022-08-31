@@ -1,12 +1,23 @@
-import React, { createContext, useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { useFetch } from './useFetch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+function App({ login }) {
+  const { loading, data, error } = useFetch(`https://api.github.com/users/${login}`);
+  
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+
+  return (
+    <pre>{JSON.stringify(data, null, 2)}</pre>
+  );
+}
+
 root.render(
-  <TreesContext.Provider value={{ trees }}>
-    <App />
-  </TreesContext.Provider>
+  <React.StrictMode>
+    <App login="lucasrmagalhaes" />
+  </React.StrictMode>
 );
