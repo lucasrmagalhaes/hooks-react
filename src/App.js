@@ -1,9 +1,19 @@
+import React, { useContext } from "react";
 import './App.css';
+import { TreesContext } from "./";
 
-function App({ name }) {
+function App() {
+  const { trees } = useContext(TreesContext);
+
   return (
-    <div className="App">
-      <h1>Hello {name}!</h1>
+    <div>
+      <h1>Trees I've Heard Of</h1>
+
+      <ul>
+        {trees.map((tree) => (
+          <li key={tree.id}>{tree.type}</li>
+        ))}
+      </ul>
     </div>
   );
 }
