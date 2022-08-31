@@ -1,11 +1,14 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export const TreesContext = createContext();
+const TreesContext = createContext();
+
+export const useTrees = () =>
+  useContext(TreesContext);
 
 const trees = [
   { id: "1", type: "Maple" },
